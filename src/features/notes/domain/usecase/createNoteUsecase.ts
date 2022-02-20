@@ -29,6 +29,6 @@ export default class CreateNoteUsecase implements Usecase {
          user_uid: params.id as string,
       });
 
-      this.cacheRepo.delete(`note:AllForId${params.id}`);
+      await this.cacheRepo.delete(`note:All${params.id}`);
    }
 }

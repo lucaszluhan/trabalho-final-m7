@@ -12,7 +12,7 @@ export default class CreateUserUsecase implements Usecase {
 
       if (user[0]) throw new UsuarioExiste(data.name);
 
-      this.repository.create({
+      await this.repository.create({
          uid: randomUUID(),
          name: data.name,
          password: data.password,

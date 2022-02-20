@@ -21,7 +21,7 @@ export default class CreateNoteController implements Controller {
             return badRequest(res, 'Sem valor de description.');
          }
 
-         this.usecase.run({ detail, description, id });
+         await this.usecase.run({ detail, description, id });
 
          return ok(res, 'Nota criada com sucesso.');
       } catch (error) {

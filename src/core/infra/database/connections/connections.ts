@@ -13,4 +13,10 @@ export default class DatabaseConnection {
    static async initConnection() {
       !this._connection ? (this._connection = await createConnection()) : console.log('Conexão já estabelecida.');
    }
+
+   static async closeConnection() {
+      if (this._connection) {
+         await this._connection.close();
+      }
+   }
 }

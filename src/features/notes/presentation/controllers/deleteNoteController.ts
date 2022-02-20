@@ -2,7 +2,6 @@ import { Request, Response } from 'express';
 import Controller from '../../../../core/presentation/contracts/controller';
 import { badRequest, ok, serverError } from '../../../../core/presentation/helpers/httpHandlers';
 import DeleteNoteUsecase from '../../domain/usecase/deleteNoteUsecase';
-import NotesRepository from '../../infra/repositories/notesRepository';
 
 export default class DeleteNoteController implements Controller {
    constructor(private usecase: DeleteNoteUsecase) {}

@@ -14,6 +14,6 @@ export default class DeleteNoteUsecase implements Usecase {
 
       this.repository.delete(data.id);
 
-      this.cacheRepo.delete(`note:AllForId${data.userId}`);
+      this.cacheRepo.delete(`note:All${data.userId}`);
    }
 }

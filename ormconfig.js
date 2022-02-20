@@ -1,9 +1,8 @@
 require('dotenv/config');
 
-module.exports = {
+let config = {
    type: 'postgres',
    url: process.env.DATABASE_URL,
-   logging: false,
    entities: [process.env.ENTITIES_DIR],
    migrations: [process.env.MIGRATIONS_DIR],
    cli: {
@@ -17,3 +16,19 @@ module.exports = {
       },
    },
 };
+
+if (process.env.NODE_ENV === 'test') {
+   config = {
+      type: 'sqlite',
+      database: './dbtest.sqlite',
+      entities: [process.env.ENTITIES_DIR],
+      migrations: ['tests/core/infra/database/migrations/**/*.ts'],
+      cli: {
+         entitiesDir: 'src/core/infra/database/entities',
+         migrationsDir: 'tests/core/infra/database/migrations',
+      },
+      synchronize: false,
+   };
+}
+
+module.exports = config;

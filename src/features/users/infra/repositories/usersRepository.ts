@@ -17,4 +17,7 @@ export default class UsersRepository {
    async findUser(name: string) {
       return await this.repository.find({ name: name });
    }
+   async clear() {
+      await this.repository.clear();
+   }
 }

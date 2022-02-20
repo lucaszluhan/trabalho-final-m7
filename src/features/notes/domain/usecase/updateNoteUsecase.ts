@@ -23,6 +23,6 @@ export default class UpdateNoteUsecase implements Usecase {
 
       this.repository.update(data.id, data.detail, data.description);
 
-      this.cacheRepo.delete(`note:AllForId${data.user_id}`);
+      this.cacheRepo.delete(`note:All${data.user_id}`);
    }
 }

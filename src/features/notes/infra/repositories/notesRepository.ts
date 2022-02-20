@@ -29,7 +29,12 @@ export default class NotesRepository {
          description: description,
       });
    }
+
    async delete(uid: string) {
       await this.repository.delete(uid);
+   }
+
+   async clear() {
+      await this.repository.clear();
    }
 }
